@@ -1,33 +1,17 @@
 import Head from 'next/head';
+import ThemeView from '../components/ThemeView';
 
 export default function Home() {
 	return (
-		<div className="flex flex-col items-center justify-center min-h-screen py-2">
+		<div className="">
 			<Head>
 				<title>Sung's personal website</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className="flex flex-col items-center justify-center flex-1 w-full px-20 text-center lg:w-9/12">
-				<h1 className="text-6xl font-bold">
-					Sung's Personal{' '}
-					<a className="text-blue-600" href="https://nextjs.org">
-						Next.js
-					</a>{' '}
-					Template!
-				</h1>
+			<main className="">
+				<ThemeView />
 			</main>
-
-			<footer className="flex items-center justify-center w-full h-24 border-t">
-				<a
-					className="flex items-center justify-center"
-					href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Powered by <img src="/vercel.svg" alt="Vercel Logo" className="h-4 ml-2" />
-				</a>
-			</footer>
 		</div>
 	);
 }
