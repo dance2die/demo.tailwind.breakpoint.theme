@@ -7,8 +7,10 @@ import '../styles/global.css';
 function MyApp({ Component, pageProps }) {
 	return (
 		<StrictMode>
-			<Appbar />
-			<Component {...pageProps} />
+			<div className="">
+				<Appbar />
+				<Component {...pageProps} />
+			</div>
 		</StrictMode>
 	);
 }

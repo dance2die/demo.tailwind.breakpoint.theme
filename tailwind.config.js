@@ -34,6 +34,44 @@ const colors = {
 	'on-error': '#fff'
 };
 
+/**
+ * Use Roboto as default font family
+ *
+ * @see TW https://tailwindcss.com/docs/font-family#customizing
+ * @see TypeScale https://material.io/design/typography/the-type-system.html#type-scale 
+ * @see Roboto https://fonts.google.com/specimen/Roboto
+ */
+const fontFamily = {
+	sans: [
+		'Roboto',
+		'ui-sans-serif',
+		'system-ui',
+		'-apple-system',
+		'BlinkMacSystemFont',
+		'"Segoe UI"',
+		'Roboto',
+		'"Helvetica Neue"',
+		'Arial',
+		'"Noto Sans"',
+		'sans-serif',
+		'"Apple Color Emoji"',
+		'"Segoe UI Emoji"',
+		'"Segoe UI Symbol"',
+		'"Noto Color Emoji"'
+	],
+	mono: [
+		'"Roboto Mono"',
+		'ui-monospace',
+		'SFMono-Regular',
+		'Menlo',
+		'Monaco',
+		'Consolas',
+		'"Liberation Mono"',
+		'"Courier New"',
+		'monospace'
+	]
+};
+
 module.exports = {
 	mode: 'jit',
 	purge: [ './pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}' ],
@@ -42,7 +80,8 @@ module.exports = {
 		extend: {
 			screens,
 			colors
-		}
+		},
+		fontFamily
 	},
 	variants: {
 		extend: {}
