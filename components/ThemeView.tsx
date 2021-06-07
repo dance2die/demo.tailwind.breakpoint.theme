@@ -7,7 +7,7 @@ const { theme } = resolveConfig(tailwindConfig);
 // const Box = ({ width, height, name, value }) => <div className={`${width} ${height} ${value}`}>{name}</div>;
 // const ThemeBox = ({ name, value }) => <Box width="w-1/3" height="h-24" name={name} value={value} />;
 
-console.log({ theme: theme.fontFamily });
+console.log({ theme });
 
 function ThemeView() {
 	return (

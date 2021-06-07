@@ -26,7 +26,7 @@ function Appbar() {
 				</section>
 				<section className="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
 					<button
-						className="material-icons mdc-top-app-bar__action-item mdc-icon-button"
+						className="text-button material-icons mdc-top-app-bar__action-item mdc-icon-button"
 						aria-label="Favorite"
 					>
 						favorite

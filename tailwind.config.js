@@ -95,7 +95,7 @@ const fontSize = Object.entries(fontMeta).map(([ key, { fontSize } ]) => ({
 const fontWeight = Object.entries(fontMeta).map(([ key, { fontWeight } ]) => ({
 	[key]: fontWeight
 }));
-const lineHeight = Object.entries(fontMeta).map(([ key, { tracking } ]) => ({
+const letterSpacing = Object.entries(fontMeta).map(([ key, { tracking } ]) => ({
 	[key]: `calc(${tracking} / 16)rem`
 }));
 
@@ -109,7 +109,7 @@ module.exports = {
 			colors,
 			fontSize,
 			fontWeight,
-			lineHeight
+			letterSpacing
 		},
 		fontFamily
 	},
