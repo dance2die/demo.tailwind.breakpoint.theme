@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @layer components {
+@layer base {
   h1 {
-    @apply text-h1
+    @apply font-h1 text-h1 tracking-h1;
   }
-} */
+  h2 {
+    @apply font-h2 text-h2 tracking-h2;
+  }
+  h3 {
+    @apply font-h3 text-h3 tracking-h3;
+  }
+  h4 {
+    @apply font-h4 text-h4 tracking-h4;
+  }
+  h5 {
+    @apply font-h5 text-h5 tracking-h5;
+  }
+  h6 {
+    @apply font-h6 text-h6 tracking-h6;
+  }
+  button {
+    @apply font-button text-button tracking-button;
+  }
+}

@@ -73,31 +73,38 @@ const fontFamily = {
 };
 
 const fontMeta = {
-	h1: { fontSize: '96px', tracking: '-1.5px', fontWeight: '300' },
-	h2: { fontSize: '60px', tracking: '-0.5px', fontWeight: '300' },
-	h3: { fontSize: '48px', tracking: '0px', fontWeight: '400' },
-	h4: { fontSize: '34px', tracking: '0.25px', fontWeight: '400' },
-	h5: { fontSize: '24px', tracking: '0px', fontWeight: '400' },
-	h6: { fontSize: '20px', tracking: '0.15px', fontWeight: '500' },
-	subtitle1: { fontSize: '16px', tracking: '0.15px', fontWeight: '400' },
-	subtitle2: { fontSize: '14px', tracking: '0.1x', fontWeight: '500' },
-	body1: { fontSize: '16px', tracking: '0.5px', fontWeight: '400' },
-	body2: { fontSize: '14px', tracking: '0.25px', fontWeight: '400' },
-	button: { fontSize: '14px', tracking: '1.25px', fontWeight: '500' },
-	caption: { fontSize: '12px', tracking: '0.4px', fontWeight: '400' },
-	overline: { fontSize: '10px', tracking: '1.5px', fontWeight: '400' }
+	h1: { fontSize: '96', tracking: '-1.5', fontWeight: '300' },
+	h2: { fontSize: '60', tracking: '-0.5', fontWeight: '300' },
+	h3: { fontSize: '48', tracking: '0', fontWeight: '400' },
+	h4: { fontSize: '34', tracking: '0.25', fontWeight: '400' },
+	h5: { fontSize: '24', tracking: '0', fontWeight: '400' },
+	h6: { fontSize: '20', tracking: '0.15', fontWeight: '500' },
+	subtitle1: { fontSize: '16', tracking: '0.15', fontWeight: '400' },
+	subtitle2: { fontSize: '14', tracking: '0.1x', fontWeight: '500' },
+	body1: { fontSize: '16', tracking: '0.5', fontWeight: '400' },
+	body2: { fontSize: '14', tracking: '0.25', fontWeight: '400' },
+	button: { fontSize: '14', tracking: '1.25', fontWeight: '500' },
+	caption: { fontSize: '12', tracking: '0.4', fontWeight: '400' },
+	overline: { fontSize: '10', tracking: '1.5', fontWeight: '400' }
 };
 
 // Use 'rem' for font size instead of pixels: https://material.io/design/typography/the-type-system.html#type-scale
-const fontSize = Object.entries(fontMeta).map(([ key, { fontSize } ]) => ({
-	[key]: `calc(${fontSize} / 16)rem`
-}));
-const fontWeight = Object.entries(fontMeta).map(([ key, { fontWeight } ]) => ({
-	[key]: fontWeight
-}));
-const letterSpacing = Object.entries(fontMeta).map(([ key, { tracking } ]) => ({
-	[key]: `calc(${tracking} / 16)rem`
-}));
+const fontSize = Object.entries(fontMeta).reduce((acc, [ key, value ]) => {
+	acc[key] = `calc((${value.fontSize} / 16) * 1rem)`;
+	return acc;
+}, {});
+
+const fontWeight = Object.entries(fontMeta).reduce((acc, [ key, value ]) => {
+	acc[key] = value.fontWeight;
+	return acc;
+}, {});
+
+const letterSpacing = Object.entries(fontMeta).reduce((acc, [ key, value ]) => {
+	acc[key] = `calc((${value.tracking} / 16) * 1rem)`;
+	return acc;
+}, {});
+
+console.log({ fontSize, fontWeight, letterSpacing });
 
 module.exports = {
 	mode: 'jit',

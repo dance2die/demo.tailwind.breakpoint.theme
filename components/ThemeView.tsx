@@ -11,7 +11,7 @@ console.log({ theme });
 
 function ThemeView() {
 	return (
-		<div className="w-8/12 mx-auto flex flex-col gap-y-10 bg-gray-200 p-12">
+		<div className=" w-8/12 mx-auto flex flex-col gap-y-10 bg-gray-200 p-12">
 			<article>
 				<section className="flex w-full h-full">
 					<div className="flex flex-col px-4 py-3 justify-between w-1/3 h-24 bg-primary">
