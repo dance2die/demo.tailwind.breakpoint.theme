@@ -1,10 +1,23 @@
-import { useReducer } from 'react';
+// import { useReducer } from 'react';
 import Link from 'next/link';
+import create from 'zustand';
+
+interface OpenState {
+	isOpen: boolean;
+	toggle: () => void;
+}
+const useOpenStore = create<OpenState>((set) => ({
+	isOpen: false,
+	toggle: () => set((state) => ({ isOpen: !state.isOpen }))
+}));
 
 const Title = () => <span className="text-md font-thin">sung.codes</span>;
-const Hamburger = ({ isOpen }) =>
-	isOpen ? (
-		<button className="h-12 w-12 grid place-items-center" aria-label="Open navigation menu">
+const Hamburger = () => {
+	const isOpen = useOpenStore((state) => state.isOpen);
+	const toggle = useOpenStore((state) => state.toggle);
+
+	return isOpen ? (
+		<button onClick={toggle} className="h-12 w-12 grid place-items-center" aria-label="Open navigation menu">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				className="h-8 w-8"
@@ -17,7 +30,7 @@ const Hamburger = ({ isOpen }) =>
 			<p className="sr-only">Menu</p>
 		</button>
 	) : (
-		<button className="h-12 w-12 grid place-items-center" aria-label="Open navigation menu">
+		<button onClick={toggle} className="h-12 w-12 grid place-items-center" aria-label="Open navigation menu">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				className="h-8 w-8"
@@ -30,15 +43,16 @@ const Hamburger = ({ isOpen }) =>
 			<p className="sr-only">Menu</p>
 		</button>
 	);
+};
 
 /**
  * Shown when a user clicks on Appbar button (Hamburger menu)
  */
-function NavigationDrawer({ isOpen = false }) {
+function NavigationDrawer() {
 	return (
 		<nav className="absolute h-screen w-80 bg-gray-300 top-0 left-0 flex flex-col  divide-solid">
 			<header className="flex items-center">
-				<Hamburger isOpen={isOpen} />
+				<Hamburger />
 				<Title />
 			</header>
 			<ul>
@@ -54,7 +68,8 @@ function NavigationDrawer({ isOpen = false }) {
 // Appbars: https://material.io/components/app-bars-top#anatomy
 // Nav Drawer: https://material.io/components/navigation-drawer#anatomy
 function Appbar() {
-	const [ { isOpen }, toggle ] = useReducer((state) => ({ isOpen: !state.isOpen }), { isOpen: true });
+	// const [ { isOpen }, toggle ] = useReducer((state) => ({ isOpen: !state.isOpen }), { isOpen: true });
+	const isOpen = useOpenStore((state) => state.isOpen);
 
 	return (
 		<header className="h-16 relative">
@@ -64,7 +79,7 @@ function Appbar() {
 					<Title />
 				</section>
 			</div>
-			<NavigationDrawer isOpen={isOpen} />
+			{isOpen && <NavigationDrawer />}
 		</header>
 	);
 }
