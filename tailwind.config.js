@@ -116,9 +116,9 @@ module.exports = {
 			colors,
 			fontSize,
 			fontWeight,
-			letterSpacing
-		},
-		fontFamily
+			letterSpacing,
+			fontFamily
+		}
 	},
 	variants: {
 		extend: {}
