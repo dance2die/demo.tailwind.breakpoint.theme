@@ -46,7 +46,18 @@ const Hamburger = () => {
 	);
 };
 
-const Scrim = () => <div className="bg-gray-600 opacity-30 fixed top-0 left-0 w-screen h-screen">a</div>;
+const Scrim = () => {
+	const isOpen = useOpenStore((state) => state.isOpen);
+
+	return (
+		<div
+			className={cl(
+				'transition duration-500 ease-in-out transform scale-0  bg-gray-500 opacity-30 fixed top-0 left-0 w-screen h-screen',
+				{ 'scale-100': isOpen, 'opacity-30': isOpen, block: isOpen, hidden: !isOpen }
+			)}
+		/>
+	);
+};
 
 /**
  * Shown when a user clicks on Appbar button (Hamburger menu)
@@ -55,7 +66,12 @@ function NavigationDrawer() {
 	const isOpen = useOpenStore((state) => state.isOpen);
 
 	return (
-		<nav className="isolate absolute h-screen w-80 bg-surface text-on-surface top-0 left-0 flex flex-col divide-solid">
+		<nav
+			className={cl(
+				'isolate absolute h-screen w-80 bg-surface text-on-surface top-0 flex flex-col transition duration-300 ease-in-out',
+				{ 'left-0': isOpen, '-left-full': !isOpen }
+			)}
+		>
 			<header className={cl('flex items-center', { 'mt-2': isOpen })}>
 				<Hamburger />
 				<Title />
@@ -78,14 +94,14 @@ function Appbar() {
 
 	return (
 		<header className="h-16 relative">
-			{isOpen && <Scrim />}
+			<Scrim />
 			<div className="flex h-full justify-between items-center">
 				<section className="flex justify-between items-center">
 					<Hamburger />
 					<Title />
 				</section>
 			</div>
-			{isOpen && <NavigationDrawer />}
+			<NavigationDrawer />
 		</header>
 	);
 }
