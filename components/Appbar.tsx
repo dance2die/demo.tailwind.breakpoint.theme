@@ -1,6 +1,7 @@
 // import { useReducer } from 'react';
 import Link from 'next/link';
 import create from 'zustand';
+import cl from 'clsx';
 
 interface OpenState {
 	isOpen: boolean;
@@ -55,7 +56,7 @@ function NavigationDrawer() {
 
 	return (
 		<nav className="isolate absolute h-screen w-80 bg-surface text-on-surface top-0 left-0 flex flex-col divide-solid">
-			<header className="flex items-center">
+			<header className={cl('flex items-center', { 'mt-2': isOpen })}>
 				<Hamburger />
 				<Title />
 			</header>
