@@ -4,6 +4,7 @@ specifiers:
   '@types/react': ^17.0.9
   autoprefixer: ^10.0.4
   babel-plugin-superjson-next: ^0.3.0
+  clsx: ^1.1.1
   next: latest
   postcss: ^8.1.10
   react: ^17.0.1
@@ -14,6 +15,7 @@ specifiers:
   zustand: ^3.5.2
 
 dependencies:
+  clsx: 1.1.1
   next: 10.2.3_c8cdd86752aa86fb2b6e32ae91115ebe
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -171,8 +173,8 @@ packages:
     engines: {node: '>=8.0.0'}
     dev: false
 
-  /@types/node/15.12.1:
-    resolution: {integrity: sha512-zyxJM8I1c9q5sRMtVF+zdd13Jt6RU4r4qfhTd7lQubyThvLfx6yYekWSQjGCGV2Tkecgxnlpl/DNlb6Hg+dmEw==}
+  /@types/node/15.12.2:
+    resolution: {integrity: sha512-zjQ69G564OCIWIOHSXyQEEDpdpGl+G348RAKY0XXy9Z5kU9Vzv1GMNnkar/ZJ8dzXB3COzD9Mo9NtRZ4xfgUww==}
     dev: false
 
   /@types/prop-types/15.7.3:
@@ -512,6 +514,11 @@ packages:
 
   /classnames/2.2.6:
     resolution: {integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==}
+    dev: false
+
+  /clsx/1.1.1:
+    resolution: {integrity: sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==}
+    engines: {node: '>=6'}
     dev: false
 
   /color-convert/1.9.3:
@@ -1207,7 +1214,7 @@ packages:
     resolution: {integrity: sha512-mk0umAQ5lT+CaOJ+Qp01N6kz48sJG2kr2n1rX0koqKf6FIygQV0qLOdN9SCYID4IVeSigDOcPeGLozdMLYfb5g==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 15.12.1
+      '@types/node': 15.12.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false

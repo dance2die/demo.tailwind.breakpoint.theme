@@ -7,7 +7,7 @@ interface OpenState {
 	toggle: () => void;
 }
 const useOpenStore = create<OpenState>((set) => ({
-	isOpen: false,
+	isOpen: true,
 	toggle: () => set((state) => ({ isOpen: !state.isOpen }))
 }));
 
@@ -45,12 +45,16 @@ const Hamburger = () => {
 	);
 };
 
+const Scrim = () => <div className="bg-gray-600 opacity-30 fixed top-0 left-0 min-w-screen h-screen">a</div>;
+
 /**
  * Shown when a user clicks on Appbar button (Hamburger menu)
  */
 function NavigationDrawer() {
+	const isOpen = useOpenStore((state) => state.isOpen);
+
 	return (
-		<nav className="absolute h-screen w-80 bg-gray-300 top-0 left-0 flex flex-col  divide-solid">
+		<nav className="isolate absolute h-screen w-80 bg-surface text-on-surface top-0 left-0 flex flex-col divide-solid">
 			<header className="flex items-center">
 				<Hamburger />
 				<Title />
@@ -61,6 +65,7 @@ function NavigationDrawer() {
 					<Link href="/about">About</Link>
 				</li>
 			</ul>
+			{isOpen && <Scrim />}
 		</nav>
 	);
 }
