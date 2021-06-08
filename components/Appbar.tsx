@@ -46,7 +46,7 @@ const Hamburger = () => {
 	);
 };
 
-const Scrim = () => <div className="bg-gray-600 opacity-30 fixed top-0 left-0 min-w-screen h-screen">a</div>;
+const Scrim = () => <div className="bg-gray-600 opacity-30 fixed top-0 left-0 w-screen h-screen">a</div>;
 
 /**
  * Shown when a user clicks on Appbar button (Hamburger menu)
@@ -66,7 +66,6 @@ function NavigationDrawer() {
 					<Link href="/about">About</Link>
 				</li>
 			</ul>
-			{isOpen && <Scrim />}
 		</nav>
 	);
 }
@@ -79,6 +78,7 @@ function Appbar() {
 
 	return (
 		<header className="h-16 relative">
+			{isOpen && <Scrim />}
 			<div className="flex h-full justify-between items-center">
 				<section className="flex justify-between items-center">
 					<Hamburger />
