@@ -52,7 +52,7 @@ const Scrim = () => {
 	return (
 		<div
 			className={cl(
-				'transition duration-500 ease-in-out transform scale-0  bg-gray-500 opacity-30 fixed top-0 left-0 w-screen h-screen',
+				'transition-all duration-500 ease-in-out transform scale-0  bg-gray-500 opacity-30 fixed top-0 left-0 w-screen h-screen',
 				{ 'scale-100': isOpen, 'opacity-30': isOpen, block: isOpen, hidden: !isOpen }
 			)}
 		/>
@@ -68,7 +68,7 @@ function NavigationDrawer() {
 	return (
 		<nav
 			className={cl(
-				'isolate absolute h-screen w-80 bg-surface text-on-surface top-0 flex flex-col transition duration-300 ease-in-out',
+				'isolate absolute h-screen w-80 bg-surface text-on-surface top-0 flex flex-col transition-all duration-500 ease-in-out',
 				{ 'left-0': isOpen, '-left-full': !isOpen }
 			)}
 		>
